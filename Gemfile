@@ -80,7 +80,7 @@ gem 'rdoc', '6.6.3.1'
 gem 'nokogiri', '1.16.5'
 
 # Bump rexml for CVE-2024-41123
-gem 'rexml', '~> 3.3.6'
+gem 'rexml', '~> 3.3.9'
 
 # logidze for versioning
 gem 'logidze', '~> 1.1'
