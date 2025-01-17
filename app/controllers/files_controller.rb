@@ -16,15 +16,8 @@ class FilesController < ApplicationController
     # Increment download count (optional)
     @file.update(download_count: @file.download_count + 1)
     file_data = @file.download
-    return unless @file.content_type == 'application/pdf'
-
-    pdf1 = CombinePDF.parse(file_data)
-    watermark_path = watermark_for_user(current_user)
-    pdf2 = CombinePDF.load(watermark_path)
-    pdf1.pages.each do |page|
-      page << pdf2.pages.first
-    end
-    file_data = pdf1.to_pdf
+    content_type = @file.content_type
+    file_data = add_watermark(file_data) if content_type == 'application/pdf'
 
     send_data file_data,
               filename: @file.filename.to_s,
@@ -40,6 +33,15 @@ class FilesController < ApplicationController
   end
 
   private
+
+  def add_watermark(file_data)
+    pdf = CombinePDF.parse(file_data)
+    watermark = CombinePDF.load(watermark_for_user(current_user))
+    pdf.pages.each do |page|
+      page << watermark.pages.first
+    end
+    file_data = pdf.to_pdf
+  end
 
   def resolve_layout
     case action_name
