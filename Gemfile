@@ -25,6 +25,9 @@ gem 'turbo-rails', '2.0.5'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails', '1.3.3'
 
+# Watermarking
+gem 'combine_pdf'
+
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails', '1.4.0'
 

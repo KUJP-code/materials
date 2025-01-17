@@ -4,7 +4,7 @@
   - if lesson.ele_english_class.attached?
     .flex.flex-col.gap-1.p-1.border-2.border-secondary-50.rounded
       %h3 Ele English Class
-      = link_to rails_blob_url(lesson.ele_english_class),
+      = link_to file_path(lesson.ele_english_class.blob.id),
                 target: '_blank',
                 rel: 'noopener',
                 class: 'btn btn-main resource flex justify-around' do
@@ -25,7 +25,7 @@
   - if lesson.kindy_english_class.attached?
     .flex.flex-col.gap-1.p-1.border-2.border-secondary-50.rounded
       %h3 Kindy English Class
-      = link_to rails_blob_url(lesson.kindy_english_class),
+      = link_to file_path(lesson.kindy_english_class.blob.id),
                 target: '_blank',
                 rel: 'noopener',
                 class: 'btn btn-main resource flex justify-around' do
@@ -46,7 +46,7 @@
   - if lesson.activity_guide.attached?
     .flex.flex-col.gap-1.p-1.border-2.border-secondary-50.rounded
       %h3 Guide
-      = link_to rails_blob_url(lesson.activity_guide),
+      = link_to file_path(lesson.activity_guide.blob.id),
                 target: '_blank',
                 rel: 'noopener',
                 class: 'btn btn-main resource flex justify-around' do
@@ -66,7 +66,7 @@
   - if lesson.scrapbook.attached?
     .flex.flex-col.gap-1.p-1.border-2.border-secondary-50.rounded
       %h3 Scrapbook
-      = link_to rails_blob_url(lesson.scrapbook),
+      = link_to file_path(lesson.scrapbook.blob.id),
                 target: '_blank',
                 rel: 'noopener',
                 class: 'btn btn-main resource flex justify-around' do
